@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>WeatherMe-LTE</title>
+</head>
+<body>
+
+<h1>Pressure</h1>
+
+
+<h2>Temperature</h2>
+
+<h3>Humidity</h3>
+
+<h4>Acceleration</h4>
+
+<h5>Movement</h5>
+
+<h6>Light</h6>
+
+</body>
+</html>
