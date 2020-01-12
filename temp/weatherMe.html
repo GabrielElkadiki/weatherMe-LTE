@@ -517,6 +517,7 @@ setTimeout(function(){
 
 	particle.getVariable({ deviceId: 'e00fce68f8caf61b899b2934', name: param, auth: '8c641b0005d711ca63e7a286a5d1ead839e3e3ca' }).then(function(data) {
   console.log('Device variable retrieved successfully:', data);
+	if(data.body.name == param) {
 	var asd = parseFloat(data.body.result);
 	console.log(asd);
 	console.log(param);
@@ -542,6 +543,7 @@ setTimeout(function(){
 	delete data;
 	console.log(asd);
 	console.log(data);
+}
 }, function(err) {
   console.log('An error occurred while getting attrs:', err);
 });
