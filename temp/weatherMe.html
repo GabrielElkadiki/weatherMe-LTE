@@ -4,7 +4,7 @@
 
 
 
-<link rel="stylesheet" href="style.css"> 
+<link rel="stylesheet" href="style.css">
 
 
 
@@ -33,8 +33,8 @@ var chartPressure = new CanvasJS.Chart("chartPressureContainer", {
 	axisY:{
 		includeZero: false
 	},
-	data: [{        
-		type: "line",       
+	data: [{
+		type: "line",
 		dataPoints: [
 			{ y: pressureArray[0]},
 			{ y: pressureArray[1]},
@@ -63,8 +63,8 @@ var chartTemperature = new CanvasJS.Chart("chartTemperatureContainer", {
 	axisY:{
 		includeZero: false
 	},
-	data: [{        
-		type: "line",       
+	data: [{
+		type: "line",
 		dataPoints: [
 			{ y: temperatureArray[0]},
 			{ y: temperatureArray[1]},
@@ -93,8 +93,8 @@ var chartHumidity = new CanvasJS.Chart("chartHumidityContainer", {
 	axisY:{
 		includeZero: false
 	},
-	data: [{        
-		type: "line",       
+	data: [{
+		type: "line",
 		dataPoints: [
 			{ y: humidityArray[0]},
 			{ y: humidityArray[1]},
@@ -124,8 +124,8 @@ var chartFeel = new CanvasJS.Chart("chartFeelContainer", {
 	axisY:{
 		includeZero: false
 	},
-	data: [{        
-		type: "line",       
+	data: [{
+		type: "line",
 		dataPoints: [
 			{ y: feelArray[0]},
 			{ y: feelArray[1]},
@@ -154,8 +154,8 @@ var chartAltitude = new CanvasJS.Chart("chartAltitudeContainer", {
 	axisY:{
 		includeZero: false
 	},
-	data: [{        
-		type: "line",       
+	data: [{
+		type: "line",
 		dataPoints: [
 			{ y: altitudeArray[0]},
 			{ y: altitudeArray[1]},
@@ -177,38 +177,38 @@ chartAltitude.render();
 </script>
 
 
-<script>  
+<script>
 function updatePressureHistory(newValue) {
                 pressureArray.shift();
                 pressureArray.push(newValue);
                 drawPressureChart();
                 }
-                
+
 function updateTemperatureHistory(newValue) {
                 temperatureArray.shift();
                 temperatureArray.push(newValue);
                 drawTemperatureChart();
                 }
-                 
+
 function updateHumidityHistory(newValue) {
                 humidityArray.shift();
                 humidityArray.push(newValue);
                 drawHumidityChart();
                 }
-                  
+
 function updateFeelHistory(newValue) {
                 feelArray.shift();
                 feelArray.push(newValue);
                 drawFeelChart();
                 }
-                   
+
 function updateAltitudeHistory(newValue) {
                 altitudeArray.shift();
                 altitudeArray.push(newValue);
                 drawAltitudeChart();
                 }
- 
-</script>                
+
+</script>
 
 <script>
 window.onload = function() {
@@ -227,7 +227,7 @@ drawAltitudeChart();
 <style>
 
 body {
-	background-color: powderblue; 
+	background-color: powderblue;
 }
 
 .grid-container {
@@ -236,7 +236,7 @@ body {
   background-color: #2196F3;
   padding: 100px;
   grid-column-gap: 25px;
-  grid-row-gap: 25px; 
+  grid-row-gap: 25px;
   	border-radius : 30px;
 }
 
@@ -254,7 +254,7 @@ img{
 	}
 
 h1   {
-	color: blue; 
+	color: blue;
 	font-size: 80px;
 	text-align: center;
 	font-family: "sans-serif", bahnschrift;
@@ -407,12 +407,12 @@ alert("hjgjhg");
 
 
 <div class="grid-container">
-  <div class="grid-item">  
+  <div class="grid-item">
   <img src="clouds.jpg" class="card-img-top" alt="clouds" style="width: 400px; height: 200px;">
   <div class="card-body">
     <h5 class="card-title">Pressure</h5>
     <p class="card-text" id="pressure">No Data To Show</p>
-    <a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("pressure", newValue); updatePressureHistory(newValue);'>Update</a>
+    <a href="#" class="btn btn-primary" onclick='parseFloat(fetchData("pressure")); '>Update</a>
 	<a class="btn btn-secondary" href="#popupPressure">History</a>
   <div class="popup" id="popupPressure">
     <div class="popup-inner">
@@ -421,12 +421,12 @@ alert("hjgjhg");
     </div>
   </div>
   </div></div>
-  <div class="grid-item">  
+  <div class="grid-item">
     <img src="snow.jpg" class="card-img-top" alt="snow" style="width: 350px; height: 200px;">
   <div class="card-body">
     <h5 class="card-title">Temperature</h5>
     <p class="card-text" id="temperature">No Data To Show</p>
-    <a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("temperature", newValue); updateTemperatureHistory(newValue);'>Update</a>
+    <a href="#" class="btn btn-primary" onclick='parseFloat(fetchData("temperature")); '>Update</a>
     <a class="btn btn-secondary" href="#popupTemperature">History</a>
   <div class="popup" id="popupTemperature">
     <div class="popup-inner">
@@ -435,12 +435,12 @@ alert("hjgjhg");
     </div>
   </div>
   </div></div>
-  <div class="grid-item">  
+  <div class="grid-item">
     <img src="mist.jpg" class="card-img-top" alt="mist" style="width: 400px; height: 200px;">
   <div class="card-body">
     <h5 class="card-title">Humidity</h5>
     <p class="card-text" id="humidity">No Data To Show</p>
-    <a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("humidity", newValue); updateHumidityHistory(newValue);'>Update</a>
+    <a href="#" class="btn btn-primary" onclick='parseFloat(fetchData("humidity")); '>Update</a>
     <a class="btn btn-secondary" href="#popupHumidity">History</a>
   <div class="popup" id="popupHumidity">
     <div class="popup-inner">
@@ -448,13 +448,13 @@ alert("hjgjhg");
       <a class="closepopup" href="#">X</a>
     </div>
   </div>
-  </div></div>  
-  <div class="grid-item">  
+  </div></div>
+  <div class="grid-item">
     <img src="car.jpg" class="card-img-top" alt="car" style="width: 400px; height: 200px;">
   <div class="card-body">
     <h5 class="card-title">What it Feels Like</h5>
     <p class="card-text" id="feel">No Data To Show</p>
-	<a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("feel", newValue); updateFeelHistory(newValue);'>Update</a>
+	<a href="#" class="btn btn-primary" onclick='getData("feelslike"); getData("feelslike"); getData("feelslike"); parseFloat(fetchData("feelslike")); '>Update</a>
     <a class="btn btn-secondary" href="#popupFeel">History</a>
   <div class="popup" id="popupFeel">
     <div class="popup-inner">
@@ -463,7 +463,7 @@ alert("hjgjhg");
     </div>
   </div>
   </div></div>
-  <div class="grid-item">  
+  <div class="grid-item">
     <img src="pendulum.jpg" class="card-img-top" alt="pendulum" style="width: 250px; height: 200px;">
   <div class="card-body">
     <h5 class="card-title">Movement</h5>
@@ -471,12 +471,12 @@ alert("hjgjhg");
     <a href="#" class="btn btn-primary" onclick='changeText("movement", Math.random());'>Update</a>
     <a href="#" class="btn btn-primary" onclick='popup();'>Display Graph</a>
   </div></div>
-  <div class="grid-item">  
+  <div class="grid-item">
     <img src="bulb.jpg" class="card-img-top" alt="bulb" style="width: 350px; height: 200px;">
   <div class="card-body">
     <h5 class="card-title">Altitude</h5>
     <p class="card-text" id="altitude">No Data To Show</p>
-	<a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("altitude", newValue); updateAltitudeHistory(newValue);'>Update</a>
+	<a href="#" class="btn btn-primary" onclick='parseFloat(fetchData("altitude")); '>Update</a>
     <a class="btn btn-secondary" href="#popupAltitude">History</a>
   <div class="popup" id="popupAltitude">
     <div class="popup-inner">
@@ -484,7 +484,61 @@ alert("hjgjhg");
       <a class="closepopup" href="#">X</a>
     </div>
   </div>
-  </div> </div>  
+  </div> </div>
 </div>
 </body>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/particle-api-js@8/dist/particle.min.js"></script>
+<script>
+var particle = new Particle();
+var token;
+
+function getData(param){
+	var fnPr = particle.callFunction({ deviceId: 'tonylte', name: 'Fetch', argument: param, auth: '8c641b0005d711ca63e7a286a5d1ead839e3e3ca' });
+
+	fnPr.then(
+	  function(data) {
+	    console.log('Function called succesfully:', data);
+	  }, function(err) {
+	    console.log('An error occurred:', err);
+	  });
+}
+
+function fetchData(param){
+setTimeout(function(){
+getData(param);
+
+	particle.getVariable({ deviceId: 'e00fce68f8caf61b899b2934', name: param, auth: '8c641b0005d711ca63e7a286a5d1ead839e3e3ca' }).then(function(data) {
+  console.log('Device variable retrieved successfully:', data);
+	var asd = parseFloat(data.body.result);
+	console.log(asd);
+	if(asd != NaN) {
+	changeText(param, asd);
+	if(param == "pressure"){
+		updatePressureHistory(asd);
+	}
+	else if(param == "temperature"){
+		updateTemperatureHistory(asd);
+	}
+	else if(param == "humidity"){
+		updateHumidityHistory(asd);
+	}
+	else if(param == "feelslike"){
+		updateFeelHistory(asd);
+	}
+	else if(param == "altitude"){
+		updateAltitudeHistory(asd);
+	}
+}
+	asd = NaN;
+	delete data;
+}, function(err) {
+  console.log('An error occurred while getting attrs:', err);
+});
+}, 500);
+}
+
+
+
+</script>
 </html>
