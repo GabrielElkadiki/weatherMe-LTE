@@ -1,0 +1,15 @@
+{
+  "name": "index",
+  "version": "1.0.0",
+  "description": "weatherMe-LTE",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tony Kim, Gabriel Elkadiki, Tauheed Elahee, Carson Fischl",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "particle-api-js": "^8.0.1"
+  }
+}
