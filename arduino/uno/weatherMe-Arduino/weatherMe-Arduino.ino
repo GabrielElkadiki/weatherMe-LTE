@@ -84,6 +84,6 @@ void processBuffer(float h, float t, float hic, Adafruit_BMP280* bme){
   if(input == 0) Serial.println(bme->readPressure());
   else if(input == 1) Serial.println(t);
   else if(input == 2) Serial.println(hic);
-  else if(input == 0)Serial.println(h);
+  else if(input == 3)Serial.println(h);
   else if(input == 4) Serial.println(bme->readAltitude(forcase));
 }
