@@ -197,15 +197,20 @@ float getData(String param){
       }
     }
         else {
-          Serial.println("readBuf overflow, emptying buffer");
           readBufOffset = 0;
     }
          }
         
     }
-    Serial.flush();
+    serialFlush();
     return (float)atof(readBuf);
 }
+
+void serialFlush(){
+  while(Serial.available() > 0) {
+    char t = Serial.read();
+  }
+}   
 
 void processBuffer(String param) {
 
