@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+
+
+<link rel="stylesheet" href="style.css"> 
+
+
+
 <style>
 
 body {
@@ -193,7 +200,16 @@ $(window).load(function popup() {
     <h5 class="card-title">Light</h5>
     <p class="card-text" id="light">No Data To Show</p>
     <a href="#" class="btn btn-primary" onclick='changeText("light", Math.random());'>Update</a>
-	<a href="#" class="btn btn-primary" onclick='popup();'>Display Graph</a>
+	<a class="button" href="#popup">Update Test</a>
+  <div class="popup" id="popup">
+    <div class="popup-inner">
+      <div class="popuptext">
+        <h1>Pure CSS Pop-Up WebDevTrick</h1>
+        <p>Webdevtrick is a blog for web designer and developers. We share example of simple web programs with source code. Simple programs make different this blog from others, because others share advanced program. And advance program maybe difficult for beginners. <a href="https://webdevtrick.com">Visit WebDevTrick</a></p>
+      </div>
+      <a class="closepopup" href="#">X</a>
+    </div>
+  </div>
   </div> </div>  
 </div>
 </body>
