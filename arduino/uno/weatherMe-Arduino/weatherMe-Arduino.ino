@@ -12,6 +12,7 @@
 #include <Adafruit_BMP280.h>
 //Constants
 const size_t READ_BUF_SIZE = 64;
+#define PHOTO_RESIST_PIN 16
 #define BMP_SCK 13
 #define BMP_MISO 12
 #define BMP_MOSI 11
@@ -86,4 +87,5 @@ void processBuffer(float h, float t, float hic, Adafruit_BMP280* bme){
   else if(input == 2) Serial.println(hic);
   else if(input == 3)Serial.println(h);
   else if(input == 4) Serial.println(bme->readAltitude(forcase));
+  else if(input == 5) Serial.println(analogRead(PHOTO_RESIST_PIN));
 }
