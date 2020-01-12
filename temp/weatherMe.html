@@ -11,69 +11,20 @@
 
 <script>
 
-var lightArray = [0,0,0,0,0,0,0,0,0,0,0];
-
-
-</script>
-
-<script>
-function drawLightChart() {
-var lightchart = new CanvasJS.Chart("chartLightContainer", {
-	animationEnabled: true,
-	theme: "light2",
-	title:{
-		text: "Light"
-	},
-	axisY:{
-		includeZero: false
-	},
-	data: [{        
-		type: "line",       
-		dataPoints: [
-			{ y: lightArray[0]},
-			{ y: lightArray[1]},
-			{ y: lightArray[2] },
-			{ y: lightArray[3] },
-			{ y: lightArray[4] },
-			{ y: lightArray[5] },
-			{ y: lightArray[6] },
-			{ y: lightArray[7] },
-			{ y: lightArray[8] },
-			{ y: lightArray[9] },
-			{ y: lightArray[10] }
-		]
-	}]
-});
-lightchart.render();
-}
-</script>
-
-
-<script>
-function updateLightHistory(newValue) {
-                lightArray.shift();
-                lightArray.push(newValue);
-                drawLightChart();
-                }
-                
-                
-
-                
-window.onload = function() {
-drawLightChart();
-}
-</script>
-
-<script>
-
 var pressureArray = [0,0,0,0,0,0,0,0,0,0,0];
+var temperatureArray = [0,0,0,0,0,0,0,0,0,0,0];
+var humidityArray = [0,0,0,0,0,0,0,0,0,0,0];
+var feelArray = [0,0,0,0,0,0,0,0,0,0,0];
+var altitudeArray = [0,0,0,0,0,0,0,0,0,0,0];
 
 
 </script>
 
 <script>
+
+
 function drawPressureChart() {
-var pressurechart = new CanvasJS.Chart("chartContainer", {
+var chartPressure = new CanvasJS.Chart("chartPressureContainer", {
 	animationEnabled: true,
 	theme: "light2",
 	title:{
@@ -99,36 +50,11 @@ var pressurechart = new CanvasJS.Chart("chartContainer", {
 		]
 	}]
 });
-pressurechart.render();
+chartPressure.render();
 }
-</script>
 
-
-<script>
-function updatePressureHistory(newValue) {
-                pressureArray.shift();
-                pressureArray.push(newValue);
-                drawPressureChart();
-                }
-                
-                
-
-                
-window.onload = function() {
-drawPressureChart();
-}
-</script>
-
-<script>
-
-var temperatureArray = [0,0,0,0,0,0,0,0,0,0,0];
-
-
-</script>
-
-<script>
 function drawTemperatureChart() {
-var temperaturechart = new CanvasJS.Chart("chartContainer", {
+var chartTemperature = new CanvasJS.Chart("chartTemperatureContainer", {
 	animationEnabled: true,
 	theme: "light2",
 	title:{
@@ -154,36 +80,11 @@ var temperaturechart = new CanvasJS.Chart("chartContainer", {
 		]
 	}]
 });
-temperaturechart.render();
+chartTemperature.render();
 }
-</script>
 
-
-<script>
-function updateTemperatureHistory(newValue) {
-                temperatureArray.shift();
-                temperatureArray.push(newValue);
-                drawTemperatureChart();
-                }
-                
-                
-
-                
-window.onload = function() {
-drawTemperatureChart();
-}
-</script>
-
-<script>
-
-var HumidityArray = [0,0,0,0,0,0,0,0,0,0,0];
-
-
-</script>
-
-<script>
 function drawHumidityChart() {
-var humiditychart = new CanvasJS.Chart("chartContainer", {
+var chartHumidity = new CanvasJS.Chart("chartHumidityContainer", {
 	animationEnabled: true,
 	theme: "light2",
 	title:{
@@ -195,147 +96,127 @@ var humiditychart = new CanvasJS.Chart("chartContainer", {
 	data: [{        
 		type: "line",       
 		dataPoints: [
-			{ y: HumidityArray[0]},
-			{ y: HumidityArray[1]},
-			{ y: HumidityArray[2]},
-			{ y: HumidityArray[3] },
-			{ y: HumidityArray[4] },
-			{ y: HumidityArray[5] },
-			{ y: HumidityArray[6] },
-			{ y: HumidityArray[7] },
-			{ y: HumidityArray[8]},
-			{ y: HumidityArray[9] },
-			{ y: HumidityArray[10] }
+			{ y: humidityArray[0]},
+			{ y: humidityArray[1]},
+			{ y: humidityArray[2]},
+			{ y: humidityArray[3] },
+			{ y: humidityArray[4] },
+			{ y: humidityArray[5] },
+			{ y: humidityArray[6] },
+			{ y: humidityArray[7] },
+			{ y: humidityArray[8]},
+			{ y: humidityArray[9] },
+			{ y: humidityArray[10] }
 		]
 	}]
 });
-humiditychart.render();
+chartHumidity.render();
 }
+
+
+function drawFeelChart() {
+var chartFeel = new CanvasJS.Chart("chartFeelContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "What if Feels Like"
+	},
+	axisY:{
+		includeZero: false
+	},
+	data: [{        
+		type: "line",       
+		dataPoints: [
+			{ y: feelArray[0]},
+			{ y: feelArray[1]},
+			{ y: feelArray[2]},
+			{ y: feelArray[3] },
+			{ y: feelArray[4] },
+			{ y: feelArray[5] },
+			{ y: feelArray[6] },
+			{ y: feelArray[7] },
+			{ y: feelArray[8]},
+			{ y: feelArray[9] },
+			{ y: feelArray[10] }
+		]
+	}]
+});
+chartFeel.render();
+}
+
+function drawAltitudeChart() {
+var chartAltitude = new CanvasJS.Chart("chartAltitudeContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Approximate Altitude"
+	},
+	axisY:{
+		includeZero: false
+	},
+	data: [{        
+		type: "line",       
+		dataPoints: [
+			{ y: altitudeArray[0]},
+			{ y: altitudeArray[1]},
+			{ y: altitudeArray[2]},
+			{ y: altitudeArray[3] },
+			{ y: altitudeArray[4] },
+			{ y: altitudeArray[5] },
+			{ y: altitudeArray[6] },
+			{ y: altitudeArray[7] },
+			{ y: altitudeArray[8]},
+			{ y: altitudeArray[9] },
+			{ y: altitudeArray[10] }
+		]
+	}]
+});
+chartAltitude.render();
+}
+
 </script>
 
 
-<script>
+<script>  
+function updatePressureHistory(newValue) {
+                pressureArray.shift();
+                pressureArray.push(newValue);
+                drawPressureChart();
+                }
+                
+function updateTemperatureHistory(newValue) {
+                temperatureArray.shift();
+                temperatureArray.push(newValue);
+                drawTemperatureChart();
+                }
+                 
 function updateHumidityHistory(newValue) {
-                HumidityArray.shift();
-                HumidityArray.push(newValue);
+                humidityArray.shift();
+                humidityArray.push(newValue);
                 drawHumidityChart();
                 }
-                
-                
+                  
+function updateFeelHistory(newValue) {
+                feelArray.shift();
+                feelArray.push(newValue);
+                drawFeelChart();
+                }
+                   
+function updateAltitudeHistory(newValue) {
+                altitudeArray.shift();
+                altitudeArray.push(newValue);
+                drawAltitudeChart();
+                }
+ 
+</script>                
 
-                
+<script>
 window.onload = function() {
+drawPressureChart();
+drawTemperatureChart();
 drawHumidityChart();
-}
-</script>
-
-<script>
-
-var AccelerationArray = [0,0,0,0,0,0,0,0,0,0,0];
-
-
-</script>
-
-<script>
-function drawAccelerationChart() {
-var accelerationchart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	theme: "light2",
-	title:{
-		text: "Acceleration"
-	},
-	axisY:{
-		includeZero: false
-	},
-	data: [{        
-		type: "line",       
-		dataPoints: [
-			{ y: AccelerationArray[0]},
-			{ y: AccelerationArray[1]},
-			{ y: AccelerationArray[2]},
-			{ y: AccelerationArray[3] },
-			{ y: AccelerationArray[4] },
-			{ y: AccelerationArray[5] },
-			{ y: AccelerationArray[6] },
-			{ y: AccelerationArray[7] },
-			{ y: AccelerationArray[8]},
-			{ y: AccelerationArray[9] },
-			{ y: AccelerationArray[10] }
-		]
-	}]
-});
-accelerationchart.render();
-}
-</script>
-
-
-<script>
-function updateAccelerationHistory(newValue) {
-                AccelerationArray.shift();
-                AccelerationArray.push(newValue);
-                drawAccelerationChart();
-                }
-                
-                
-
-                
-window.onload = function() {
-drawAccelerationChart();
-}
-</script>
-
-<script>
-
-var MovementArray = [0,0,0,0,0,0,0,0,0,0,0];
-
-
-</script>
-
-<script>
-function drawMovementChart() {
-var movementchart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	theme: "light2",
-	title:{
-		text: "Movement"
-	},
-	axisY:{
-		includeZero: false
-	},
-	data: [{        
-		type: "line",       
-		dataPoints: [
-			{ y: MovementArray[0]},
-			{ y: MovementArray[1]},
-			{ y: MovementArray[2]},
-			{ y: MovementArray[3] },
-			{ y: MovementArray[4] },
-			{ y: MovementArray[5] },
-			{ y: MovementArray[6] },
-			{ y: MovementArray[7] },
-			{ y: MovementArray[8]},
-			{ y: MovementArray[9] },
-			{ y: MovementArray[10] }
-		]
-	}]
-});
-movementchart.render();
-}
-</script>
-
-
-<script>
-function updateMovementHistory(newValue) {
-                MovementArray.shift();
-                MovementArray.push(newValue);
-                drawMovementChart();
-                }
-                
-                
-
-                
-window.onload = function() {
-drawMovementChart();
+drawFeelChart();
+drawAltitudeChart();
 }
 </script>
 
@@ -452,6 +333,34 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<script>
+$(window).load(function popup() {
+    $(".trigger_popup_fricc").click(function(){
+       $('.hover_bkgr_fricc').show();
+    });
+    $('.hover_bkgr_fricc').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+    $('.popupCloseButton').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+}
+);</script>
+<script>
+$(window).load(function popup2() {
+    $(".trigger_popup_fricc").click(function(){
+       $('.hover_bkgr_fricc').show();
+    });
+    $('.hover_bkgr_fricc').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+    $('.popupCloseButton').click(function(){
+        $('.hover_bkgr_fricc').hide();
+    });
+}
+);</script>
+
+
 
 <script type="text/javascript">
             function changeText(id, value) {
@@ -459,11 +368,42 @@ $(document).ready(function(){
                 }
 </script>
 
+<!--
+
 <script>
 $(window).load(function() {
-drawLightChart();
+drawTemperatureChart();
+alert("hjgjhg");
 }
 </script>
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="grid-container">
@@ -472,11 +412,11 @@ drawLightChart();
   <div class="card-body">
     <h5 class="card-title">Pressure</h5>
     <p class="card-text" id="pressure">No Data To Show</p>
-    <a href="#" class="btn btn-primary" onclick='changeText("pressure", Math.random());'>Update</a>
-<a class="btn btn-secondary" href="#popup">History</a>
-  <div class="popup" id="popup">
+    <a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("pressure", newValue); updatePressureHistory(newValue);'>Update</a>
+	<a class="btn btn-secondary" href="#popupPressure">History</a>
+  <div class="popup" id="popupPressure">
     <div class="popup-inner">
-      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+      <div id="chartPressureContainer" style="height: 370px; width: 100%;"></div>
       <a class="closepopup" href="#">X</a>
     </div>
   </div>
@@ -486,11 +426,11 @@ drawLightChart();
   <div class="card-body">
     <h5 class="card-title">Temperature</h5>
     <p class="card-text" id="temperature">No Data To Show</p>
-    <a href="#" class="btn btn-primary" onclick='changeText("temperature", Math.random());'>Update</a>
-<a class="btn btn-secondary" href="#popup">History</a>
-  <div class="popup" id="popup">
+    <a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("temperature", newValue); updateTemperatureHistory(newValue);'>Update</a>
+    <a class="btn btn-secondary" href="#popupTemperature">History</a>
+  <div class="popup" id="popupTemperature">
     <div class="popup-inner">
-      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+      <div id="chartTemperatureContainer" style="height: 370px; width: 100%;"></div>
       <a class="closepopup" href="#">X</a>
     </div>
   </div>
@@ -500,11 +440,11 @@ drawLightChart();
   <div class="card-body">
     <h5 class="card-title">Humidity</h5>
     <p class="card-text" id="humidity">No Data To Show</p>
-    <a href="#" class="btn btn-primary" onclick='changeText("humidity", Math.random());'>Update</a>
-<a class="btn btn-secondary" href="#popup">History</a>
-  <div class="popup" id="popup">
+    <a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("humidity", newValue); updateHumidityHistory(newValue);'>Update</a>
+    <a class="btn btn-secondary" href="#popupHumidity">History</a>
+  <div class="popup" id="popupHumidity">
     <div class="popup-inner">
-      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+      <div id="chartHumidityContainer" style="height: 370px; width: 100%;"></div>
       <a class="closepopup" href="#">X</a>
     </div>
   </div>
@@ -512,13 +452,13 @@ drawLightChart();
   <div class="grid-item">  
     <img src="car.jpg" class="card-img-top" alt="car" style="width: 400px; height: 200px;">
   <div class="card-body">
-    <h5 class="card-title">Acceleration</h5>
-    <p class="card-text" id="acceleration">No Data To Show</p>
-    <a href="#" class="btn btn-primary" onclick='changeText("acceleration", Math.random());'>Update</a>
-<a class="btn btn-secondary" href="#popup">History</a>
-  <div class="popup" id="popup">
+    <h5 class="card-title">What it Feels Like</h5>
+    <p class="card-text" id="feel">No Data To Show</p>
+	<a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("feel", newValue); updateFeelHistory(newValue);'>Update</a>
+    <a class="btn btn-secondary" href="#popupFeel">History</a>
+  <div class="popup" id="popupFeel">
     <div class="popup-inner">
-      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+      <div id="chartFeelContainer" style="height: 370px; width: 100%;"></div>
       <a class="closepopup" href="#">X</a>
     </div>
   </div>
@@ -529,24 +469,18 @@ drawLightChart();
     <h5 class="card-title">Movement</h5>
     <p class="card-text" id="movement">No Data To Show</p>
     <a href="#" class="btn btn-primary" onclick='changeText("movement", Math.random());'>Update</a>
-<a class="btn btn-secondary" href="#popup">History</a>
-  <div class="popup" id="popup">
-    <div class="popup-inner">
-      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-      <a class="closepopup" href="#">X</a>
-    </div>
-  </div>
+    <a href="#" class="btn btn-primary" onclick='popup();'>Display Graph</a>
   </div></div>
   <div class="grid-item">  
     <img src="bulb.jpg" class="card-img-top" alt="bulb" style="width: 350px; height: 200px;">
   <div class="card-body">
-    <h5 class="card-title">Light</h5>
-    <p class="card-text" id="light">No Data To Show</p>
-    <a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("light", newValue); updateLightHistory(newValue);'>Update</a>
-	<a class="btn btn-secondary" href="#popup">History</a>
-  <div class="popup" id="popupLight">
+    <h5 class="card-title">Altitude</h5>
+    <p class="card-text" id="altitude">No Data To Show</p>
+	<a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("altitude", newValue); updateAltitudeHistory(newValue);'>Update</a>
+    <a class="btn btn-secondary" href="#popupAltitude">History</a>
+  <div class="popup" id="popupAltitude">
     <div class="popup-inner">
-      <div id="chartLightContainer" style="height: 370px; width: 100%;"></div>
+      <div id="chartAltitudeContainer" style="height: 370px; width: 100%;"></div>
       <a class="closepopup" href="#">X</a>
     </div>
   </div>
