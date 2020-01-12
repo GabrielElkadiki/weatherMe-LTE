@@ -1,22 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>WeatherMe-LTE</title>
+
+<style>
+body {
+	background-color: powderblue; 
+	border-style: solid;
+}
+h1   {
+	color: blue; 
+	font-size: 56px;
+	text-align: center;
+	font-family: "sans-serif", calibri;
+}
+p    {
+	color: blue; 
+	font-size: 42px;
+	text-align: center; 
+	font-family: "sans-serif", calibri;
+}
+div {
+  width: 300px;
+  border: 15px solid white;
+  padding: 50px;
+  margin: 20px;
+  margin: auto;
+}
+</style>
+<title>weatherMe-LTE</title>
+ <script type="text/javascript" src='index.js'> </script>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 
-<h1>Pressure</h1>
+<h1>weatherMe-LTE</h1>
+
+<p>Pressure
+<div>
+<div class="alert alert-primary" role="alert">
+  A simple primary alert—check it out!
+</div>
+<script>
+</script>
+</div>
+</p>
+
+<p>Temperature
+<div>
+<script>
+</script>
+</div>
+</p>
+
+<p>Humidity
+<div>
+<script>
+</script>
+</div>
+</p>
+
+<p>Acceleration
+<div>
+<script>
+</script>
+</div>
+</p>
 
 
-<h2>Temperature</h2>
+<p>Movement
+<div>
+<script>
+</script>
+</div>
+</p>
 
-<h3>Humidity</h3>
-
-<h4>Acceleration</h4>
-
-<h5>Movement</h5>
-
-<h6>Light</h6>
+<p>Light
+<div>
+<script>
+</script>
+</div>
+</p>
 
 </body>
 </html>

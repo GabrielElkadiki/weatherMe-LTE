@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+	background-color: powderblue; 
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 100px;
+  grid-column-gap: 25px;
+  grid-row-gap: 25px; 
+  	border-radius : 30px;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  	border-radius : 30px;
+}
+
+img{
+	border-radius : 20px 20px 20px 20px;
+	}
+
+h1   {
+	color: blue; 
+	font-size: 80px;
+	text-align: center;
+	font-family: "sans-serif", bahnschrift;
+	font-stretch: 40px;
+	text-decoration: underline dotted blue;
+}
+
+</style>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script id=display>
+$(document).ready(function(){
+  $("btn btn-primary").click(function(){
+    $("p").html("pressure");
+  });
+});
+</script>
+</head>
+<body>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">
+	<span id="date"></span>
+<script>
+var dt = new Date();
+document.getElementById("date").innerHTML = dt.toLocaleTimeString();
+</script>
+</p>
+<span id="time"></span>
+<script>
+var dt = new Date();
+document.getElementById("time").innerHTML = dt.toLocaleDateString();
+</script>
+	</h1>
+  </div>
+</div>
+
+<div class="grid-container">
+  <div class="grid-item">  
+  <img src="clouds.jpg" class="card-img-top" alt="clouds" style="width: 400px; height: 200px;">
+  <div class="card-body">
+    <h5 class="card-title">Pressure</h5>
+    <p class="card-text" id="pressure">
+	</p>
+    <a href="#" class="btn btn-primary"> Update</a>
+  </div></div>
+  <div class="grid-item">  
+    <img src="snow.jpg" class="card-img-top" alt="snow" style="width: 350px; height: 200px;">
+  <div class="card-body">
+    <h5 class="card-title">Temperature</h5>
+    <p class="card-text" id="temperature">Some.</p>
+    <a href="#" class="btn btn-primary">Update</a>
+  </div></div>
+  <div class="grid-item">  
+    <img src="mist.jpg" class="card-img-top" alt="mist" style="width: 400px; height: 200px;">
+  <div class="card-body">
+    <h5 class="card-title">Humidity</h5>
+    <p class="card-text" id="humidity">Some.</p>
+    <a href="#" class="btn btn-primary">Update</a>
+  </div></div>  
+  <div class="grid-item">  
+    <img src="car.jpg" class="card-img-top" alt="car" style="width: 400px; height: 200px;">
+  <div class="card-body">
+    <h5 class="card-title">Acceleration</h5>
+    <p class="card-text" id="acceleration">Some.</p>
+    <a href="#" class="btn btn-primary">Update</a>
+  </div></div>
+  <div class="grid-item">  
+    <img src="pendulum.jpg" class="card-img-top" alt="pendulum" style="width: 250px; height: 200px;">
+  <div class="card-body">
+    <h5 class="card-title">Movement</h5>
+    <p class="card-text" id="movement">Some.</p>
+    <a href="#" class="btn btn-primary">Update</a>
+  </div></div>
+  <div class="grid-item">  
+    <img src="bulb.jpg" class="card-img-top" alt="bulb" style="width: 350px; height: 200px;">
+  <div class="card-body">
+    <h5 class="card-title">Light</h5>
+    <p class="card-text" id="light">Some.</p>
+    <a href="#" class="btn btn-primary">Update</a>
+  </div> </div>  
+</div>
+</body>
+</html>
