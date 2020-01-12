@@ -5,9 +5,8 @@ const size_t READ_BUF_SIZE = 64;
 String barometer;
 String thermometer;
 String hydrometer;
-String accelerometer;
-String vibration;
-String light;
+String feelslike;
+String altitude;
 int counter = 0;
 unsigned long lastSend = 0;
 char readBuf[READ_BUF_SIZE];
@@ -19,217 +18,155 @@ void setup() {
     Particle.variable("pressure",barometer);
     Particle.variable("temperature",thermometer);
     Particle.variable("humidity",hydrometer);
-    Particle.variable("movement",accelerometer);
-    Particle.variable("vibration",vibration);
-    Particle.variable("light",light);
+    Particle.variable("feelslike",feelslike);
+    Particle.variable("altitude",altitude);
     Particle.function("Fetch",getData);
     Serial.begin(9600);
     Serial1.begin(9600);
 }
 
 void loop() {
-
-//     if (millis() - lastSend >= SEND_INTERVAL_MS) {
-//     lastSend = millis();
-
-//    Serial1.printlnf("%d", ++counter);
-//    Serial.printlnf("Sent to Arduiuno: %d", counter);
-//  }
-
-//  // Read data from serial
-//  while(Serial1.available()) {
-//    if (readBufOffset < READ_BUF_SIZE) {
-//      char c = Serial1.read();
-//      if (c != '\n') {
-//        // Add character to buffer
-//        readBuf[readBufOffset++] = c;
-//      }
-//      else {
-//        // End of line character found, process line
-//        readBuf[readBufOffset] = 0;
-//        processBuffer();
-//        readBufOffset = 0;
-//      }
-//    }
-//    else {
-//      Serial.println("readBuf overflow, emptying buffer");
-//      readBufOffset = 0;
-//    }
-//  }
+}
+void getAll(){
+    getData("pressure");
 }
 
 float getData(String param){
     if(param == "pressure"){
         Serial1.println(0);
-        Serial.printlnf("Sent to Arduino: pressure (0)");
         while(Serial1.available()){
             if (readBufOffset < READ_BUF_SIZE) {
-          char c = Serial1.read();
-          if (c != '\n') {
-            // Add character to buffer
-            readBuf[readBufOffset++] = c;
-      }
-          else {
-        // End of line character found, process line
-            readBuf[readBufOffset] = 0;
-            processBuffer(param);
-            readBufOffset = 0;
-      }
-    }
-        else {
-          Serial.println("readBuf overflow, emptying buffer");
-          readBufOffset = 0;
-    }
+			    char c = Serial1.read();
+			    if (c != '\n') {
+				    // Add character to buffer
+				    readBuf[readBufOffset++] = c;
+			}
+			    else {
+				// End of line character found, process line
+				    readBuf[readBufOffset] = 0;
+				    processBuffer(param);
+				    readBufOffset = 0;
+			}
+		}
+		    else {
+		    	Serial.println("readBuf overflow, emptying buffer");
+			    readBufOffset = 0;
+		}
          }
-        
+
     }
     else if(param == "temperature"){
         Serial1.println(1);
-        Serial.printlnf("Sent to Arduino: temperature(1)");
         while(Serial1.available()){
             if (readBufOffset < READ_BUF_SIZE) {
-          char c = Serial1.read();
-          if (c != '\n') {
-            // Add character to buffer
-            readBuf[readBufOffset++] = c;
-      }
-          else {
-        // End of line character found, process line
-            readBuf[readBufOffset] = 0;
-            processBuffer(param);
-            readBufOffset = 0;
-      }
-    }
-        else {
-          Serial.println("readBuf overflow, emptying buffer");
-          readBufOffset = 0;
-    }
+			    char c = Serial1.read();
+			    if (c != '\n') {
+				    // Add character to buffer
+				    readBuf[readBufOffset++] = c;
+			}
+			    else {
+				// End of line character found, process line
+				    readBuf[readBufOffset] = 0;
+				    processBuffer(param);
+				    readBufOffset = 0;
+			}
+		}
+		    else {
+		    	Serial.println("readBuf overflow, emptying buffer");
+			    readBufOffset = 0;
+		}
          }
-        
+
     }
     else if(param == "humidity"){
-        Serial1.println(2);
-        Serial.printlnf("Sent to Arduino: humidity (2)");
-        while(Serial1.available()){
-            if (readBufOffset < READ_BUF_SIZE) {
-          char c = Serial1.read();
-          if (c != '\n') {
-            // Add character to buffer
-            readBuf[readBufOffset++] = c;
-      }
-          else {
-        // End of line character found, process line
-            readBuf[readBufOffset] = 0;
-            processBuffer(param);
-            readBufOffset = 0;
-      }
-    }
-        else {
-          Serial.println("readBuf overflow, emptying buffer");
-          readBufOffset = 0;
-    }
-         }
-        
-    }
-    else if(param == "movement"){
         Serial1.println(3);
-        Serial.printlnf("Sent to Arduino: movement (3)");
         while(Serial1.available()){
             if (readBufOffset < READ_BUF_SIZE) {
-          char c = Serial1.read();
-          if (c != '\n') {
-            // Add character to buffer
-            readBuf[readBufOffset++] = c;
-      }
-          else {
-        // End of line character found, process line
-            readBuf[readBufOffset] = 0;
-            processBuffer(param);
-            readBufOffset = 0;
-      }
-    }
-        else {
-          Serial.println("readBuf overflow, emptying buffer");
-          readBufOffset = 0;
-    }
+			    char c = Serial1.read();
+			    if (c != '\n') {
+				    // Add character to buffer
+				    readBuf[readBufOffset++] = c;
+			}
+			    else {
+				// End of line character found, process line
+				    readBuf[readBufOffset] = 0;
+				    processBuffer(param);
+				    readBufOffset = 0;
+			}
+		}
+		    else {
+		    	Serial.println("readBuf overflow, emptying buffer");
+			    readBufOffset = 0;
+		}
          }
-        
+
     }
-        else if(param == "vibration"){
+    else if(param == "feelslike"){
+        Serial1.println(2);
+        while(Serial1.available()){
+            if (readBufOffset < READ_BUF_SIZE) {
+			    char c = Serial1.read();
+			    if (c != '\n') {
+				    // Add character to buffer
+				    readBuf[readBufOffset++] = c;
+			}
+			    else {
+				// End of line character found, process line
+				    readBuf[readBufOffset] = 0;
+				    processBuffer(param);
+				    readBufOffset = 0;
+			}
+		}
+		    else {
+		    	Serial.println("readBuf overflow, emptying buffer");
+			    readBufOffset = 0;
+		}
+         }
+
+    }
+        else if(param == "altitude"){
         Serial1.println(4);
-        Serial.printlnf("Sent to Arduino: vibration (4)");
         while(Serial1.available()){
             if (readBufOffset < READ_BUF_SIZE) {
-          char c = Serial1.read();
-          if (c != '\n') {
-            // Add character to buffer
-            readBuf[readBufOffset++] = c;
-      }
-          else {
-        // End of line character found, process line
-            readBuf[readBufOffset] = 0;
-            processBuffer(param);
-            readBufOffset = 0;
-      }
-    }
-        else {
-          Serial.println("readBuf overflow, emptying buffer");
-          readBufOffset = 0;
-    }
+			    char c = Serial1.read();
+			    if (c != '\n') {
+				    // Add character to buffer
+				    readBuf[readBufOffset++] = c;
+			}
+			    else {
+				// End of line character found, process line
+				    readBuf[readBufOffset] = 0;
+				    processBuffer(param);
+				    readBufOffset = 0;
+			}
+		}
+		    else {
+		    	Serial.println("readBuf overflow, emptying buffer");
+			    readBufOffset = 0;
+		}
          }
-        
+
     }
-    else if(param == "light"){
-        Serial1.println(5);
-        Serial.printlnf("Sent to Arduino: light (5)");
-        while(Serial1.available()){
-            if (readBufOffset < READ_BUF_SIZE) {
-          char c = Serial1.read();
-          if (c != '\n') {
-            // Add character to buffer
-            readBuf[readBufOffset++] = c;
-      }
-          else {
-        // End of line character found, process line
-            readBuf[readBufOffset] = 0;
-            processBuffer(param);
-            readBufOffset = 0;
-      }
-    }
-        else {
-          readBufOffset = 0;
-    }
-         }
-        
-    }
-    serialFlush();
+
+
     return (float)atof(readBuf);
 }
 
-void serialFlush(){
-  while(Serial.available() > 0) {
-    char t = Serial.read();
-  }
-}   
-
 void processBuffer(String param) {
-
-  if(param == "pressure"){
-      barometer = readBuf;
-  }
-  else if(param == "temperature"){
-      thermometer = readBuf;
-  }
-  else if(param == "humidity"){
-      hydrometer = readBuf;
-  }
-  else if(param == "movement"){
-      accelerometer = readBuf;
-  }
-  else if(param == "vibration"){
-      vibration = readBuf;
-  }
-  else if(param == "light"){
-      light = readBuf;
-  }
+	Serial.printlnf("Received from Arduino: %s", readBuf);
+	if(param == "pressure"){
+	    barometer = readBuf;
+	}
+	else if(param == "temperature"){
+	    thermometer = readBuf;
+	}
+	else if(param == "humidity"){
+	    hydrometer = readBuf;
+	}
+	else if(param == "altitude"){
+	    altitude = readBuf;
+	}
+	else if(param == "feelslike"){
+	    feelslike = readBuf;
+	}
 }
