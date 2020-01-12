@@ -69,6 +69,13 @@ document.getElementById("time").innerHTML = dt.toLocaleDateString();
   </div>
 </div>
 
+
+<script type="text/javascript">
+            function changeText(id, value) {
+                document.getElementById(id).innerHTML = value;
+                }
+</script>
+
 <div class="grid-container">
   <div class="grid-item">  
   <img src="clouds.jpg" class="card-img-top" alt="clouds" style="width: 400px; height: 200px;">
@@ -83,7 +90,7 @@ document.getElementById("time").innerHTML = dt.toLocaleDateString();
   <div class="card-body">
     <h5 class="card-title">Temperature</h5>
     <p class="card-text" id="temperature">Some.</p>
-    <a href="#" class="btn btn-primary">Update</a>
+    <a href="#" class="btn btn-primary" onclick='changeText("temperature", Math.random());'>Update</a>
   </div></div>
   <div class="grid-item">  
     <img src="mist.jpg" class="card-img-top" alt="mist" style="width: 400px; height: 200px;">
