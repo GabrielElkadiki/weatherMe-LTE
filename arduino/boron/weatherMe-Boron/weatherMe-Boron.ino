@@ -203,12 +203,12 @@ float getData(String param){
          }
         
     }
-    
+    Serial.flush();
     return (float)atof(readBuf);
 }
 
 void processBuffer(String param) {
-  Serial.printlnf("Received from Arduino: %s", readBuf);
+
   if(param == "pressure"){
       barometer = readBuf;
   }
