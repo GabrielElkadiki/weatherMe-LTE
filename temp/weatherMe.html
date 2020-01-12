@@ -450,10 +450,10 @@ alert("hjgjhg");
   </div>
   </div></div>
   <div class="grid-item">
-    <img src="car.jpg" class="card-img-top" alt="car" style="width: 400px; height: 200px;">
+    <img src="https://images.pexels.com/photos/1554092/pexels-photo-1554092.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" class="card-img-top" alt="feelsLike" style="width: 400px; height: 200px;">
   <div class="card-body">
     <h5 class="card-title">What it Feels Like</h5>
-    <p class="card-text" id="feel">No Data To Show</p>
+    <p class="card-text" id="feelslike">No Data To Show</p>
 	<a href="#" class="btn btn-primary" onclick='getData("feelslike"); getData("feelslike"); getData("feelslike"); parseFloat(fetchData("feelslike")); '>Update</a>
     <a class="btn btn-secondary" href="#popupFeel">History</a>
   <div class="popup" id="popupFeel">
@@ -494,24 +494,32 @@ var particle = new Particle();
 var token;
 
 function getData(param){
+	console.log(param);
 	var fnPr = particle.callFunction({ deviceId: 'tonylte', name: 'Fetch', argument: param, auth: '8c641b0005d711ca63e7a286a5d1ead839e3e3ca' });
 
 	fnPr.then(
 	  function(data) {
 	    console.log('Function called succesfully:', data);
+			console.log("test " + fnPr + parseFloat(data.body.result));
 	  }, function(err) {
 	    console.log('An error occurred:', err);
 	  });
 }
 
 function fetchData(param){
+
+getData(param);
 setTimeout(function(){
 getData(param);
+}, 500);
+setTimeout(function(){
+
 
 	particle.getVariable({ deviceId: 'e00fce68f8caf61b899b2934', name: param, auth: '8c641b0005d711ca63e7a286a5d1ead839e3e3ca' }).then(function(data) {
   console.log('Device variable retrieved successfully:', data);
 	var asd = parseFloat(data.body.result);
 	console.log(asd);
+	console.log(param);
 	if(asd != NaN) {
 	changeText(param, asd);
 	if(param == "pressure"){
@@ -532,10 +540,14 @@ getData(param);
 }
 	asd = NaN;
 	delete data;
+	console.log(asd);
+	console.log(data);
 }, function(err) {
   console.log('An error occurred while getting attrs:', err);
 });
-}, 500);
+
+}, 1500);
+
 }
 
 
