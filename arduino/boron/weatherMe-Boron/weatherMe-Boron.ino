@@ -148,9 +148,16 @@ float getData(String param){
 
     }
 
-
+    serialFlush();
     return (float)atof(readBuf);
 }
+
+
+void serialFlush(){
+  while(Serial.available() > 0) {
+    char t = Serial.read();
+  }
+}   
 
 void processBuffer(String param) {
 	Serial.printlnf("Received from Arduino: %s", readBuf);
