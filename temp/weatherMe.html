@@ -8,6 +8,66 @@
 
 
 
+
+<script>
+
+var lightArray = [0,0,0,0,0,0,0,0,0,0,0];
+
+
+</script>
+
+<script>
+function drawLightChart() {
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title:{
+		text: "Simple Line Chart"
+	},
+	axisY:{
+		includeZero: false
+	},
+	data: [{        
+		type: "line",       
+		dataPoints: [
+			{ y: lightArray[0]},
+			{ y: lightArray[1]},
+			{ y: lightArray[2], indexLabel: "highest",markerColor: "red", markerType: "triangle" },
+			{ y: lightArray[3] },
+			{ y: lightArray[4] },
+			{ y: lightArray[5] },
+			{ y: lightArray[6] },
+			{ y: lightArray[7] },
+			{ y: lightArray[8] , indexLabel: "lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+			{ y: lightArray[9] },
+			{ y: lightArray[10] }
+		]
+	}]
+});
+chart.render();
+}
+</script>
+
+
+<script>
+function updateLightHistory(newValue) {
+                lightArray.shift();
+                lightArray.push(newValue);
+                drawLightChart();
+                }
+                
+                
+
+                
+window.onload = function() {
+drawLightChart();
+}
+</script>
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+
 <style>
 
 body {
@@ -145,13 +205,54 @@ $(window).load(function popup() {
     $('.popupCloseButton').click(function(){
         $('.hover_bkgr_fricc').hide();
     });
-});</script>
+}
+);</script>
+
+
 
 <script type="text/javascript">
             function changeText(id, value) {
                 document.getElementById(id).innerHTML = value;
                 }
 </script>
+
+<!--
+
+<script>
+$(window).load(function() {
+drawLightChart();
+alert("hjgjhg");
+}
+</script>
+
+
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="grid-container">
   <div class="grid-item">  
@@ -199,14 +300,11 @@ $(window).load(function popup() {
   <div class="card-body">
     <h5 class="card-title">Light</h5>
     <p class="card-text" id="light">No Data To Show</p>
-    <a href="#" class="btn btn-primary" onclick='changeText("light", Math.random());'>Update</a>
+    <a href="#" class="btn btn-primary" onclick='var newValue = Math.random(); changeText("light", newValue); updateLightHistory(newValue);'>Update</a>
 	<a class="btn btn-secondary" href="#popup">History</a>
   <div class="popup" id="popup">
     <div class="popup-inner">
-      <div class="popuptext">
-        <h1>Pure CSS Pop-Up WebDevTrick</h1>
-        <p>Webdevtrick is a blog for web designer and developers. We share example of simple web programs with source code. Simple programs make different this blog from others, because others share advanced program. And advance program maybe difficult for beginners. <a href="https://webdevtrick.com">Visit WebDevTrick</a></p>
-      </div>
+      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
       <a class="closepopup" href="#">X</a>
     </div>
   </div>
